@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chili Sauce Order Form</title>
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">   
+</head>
+<body>
+
+  <div class="form-header">
+        <i class="fa-solid fa-pepper-hot"></i>
+        <h1>Spicy Sauce ni Sam</h1>
+        <p>Order your perfect hot sauce today!</p>
+  </div>
+
+  <form action="#" method="post" autocomplete="on" target="_self" class="order-form">
+        
+  <!--Personal Information-->
+  <fieldset>
+    <legend><i class="fa-solid fa-user"></i> Personal Information</legend>
+            
+    <div class="form-group">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="customer_name" placeholder="Juan Dela Cruz" required maxlength="50">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="customer_email" placeholder="juan@example.com" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" name="customer_phone" placeholder="0912-345-6789" maxlength="15">
+    </div>
+
+    <div class="form-group">
+      <label for="delivery-date">Preferred Delivery Date</label>
+      <input type="date" id="delivery-date" name="delivery_date" required>
+    </div>
+    </fieldset>
+
+  <!--Sauce Selection-->
+  <fieldset>
+    <legend><i class="fa-solid fa-pepper-hot"></i> Sauce Preferences</legend>
+            
+    <div class="form-group">
+      <label for="sauce-type">Choose Your Sauce Type</label>
+      <select id="sauce-type" name="sauce_type" required>
+      <option value="">-- Select a sauce --</option>
+      <option value="classic">Classic Hot Sauce</option>
+      <option value="garlic">Garlic Chili Sauce</option>
+      <option value="sweet">Sweet Chili Sauce</option>
+      <option value="smoky">Smoky Chipotle Sauce</option>
+      <option value="habanero">Habanero Extreme</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="hotness">Hotness Level: <span id="hotness-value">5</span>/10</label>
+      <input type="range" id="hotness" name="hotness_level" min="1" max="10" value="5">
+    <div class="hotness-labels">
+      <span>Mild 🌶️</span>
+      <span>EXTREME 🔥</span>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <label for="quantity">Quantity (bottles 250 g)</label>
+      <input type="number" id="quantity" name="quantity" min="1" max="500" value="1" required>
+    </div>
+
+    <div class="form-group">
+      <label for="bottle-color">Bottle Color Preference</label>
+      <input type="color" id="bottle-color" name="bottle_color" value="#ff0000">
+    </div>
+  </fieldset>
+
+
+  <!--Additional Options-->
+  <fieldset>
+    <legend><i class="fa-solid fa-list-check"></i> Additional Options</legend>
+            
+    <div class="form-group">
+      <label>Packaging Options:</label>
+    <div class="radio-group">
+      <label><input type="radio" name="packaging" value="standard" checked>Standard Packaging (Free)</label>
+      <label><input type="radio" name="packaging" value="gift">Gift Box (+₱50)</label>
+      <label><input type="radio" name="packaging" value="premium">Premium Gift Set (+₱150)</label>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <label>Extra Add-ons:</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="addons" value="recipe-book">Free Recipe Book</label>
+      <label><input type="checkbox" name="addons" value="sticker">Limited Edition Sticker</label>
+      <label><input type="checkbox" name="addons" value="newsletter">Subscribe to Newsletter</label>
+    </div>
+    </div>
+  </fieldset>
+
+  <!--Account Details-->
+  <fieldset>
+    <legend><i class="fa-solid fa-lock"></i> Account Details (Optional)</legend>
+            
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Create a username" maxlength="20">
+    </div>
+
+    <div class="form-group"><label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Create a password" minlength="8">
+    </div>
+
+    <div class="form-group">
+      <label for="promo-code">Promo Code</label>
+      <input type="text" id="promo-code" name="promo_code" placeholder="Enter promo code" readonly value="SPICY2026">
+      </div>
+  </fieldset>
+
+  <!--Feedback-->
+  <fieldset>
+    <legend><i class="fa-solid fa-comment"></i> Additional Comments</legend>
+            
+    <div class="form-group">
+      <label for="special-instructions">Special Instructions or Dietary Restrictions</label>
+      <textarea id="special-instructions" name="comments" rows="4" placeholder="Any allergies or special requests? Let us know..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="photo-upload">Upload a Photo (Optional)</label>
+      <input type="file" id="photo-upload" name="photo" accept="image/*">
+    </div>
+  </fieldset>
+
+  <!-- Submit Buttons -->
+    <div class="button-group">
+      <button type="submit" class="btn-submit"><i class="fa-solid fa-cart-shopping"></i> Place Order</button>
+      <button type="reset" class="btn-reset"><i class="fa-solid fa-rotate-left"></i> Reset Form</button>
+    </div>
+
+  </form>
+
+  <script>
+    const hotnessSlider = document.getElementById('hotness');
+    const hotnessValue = document.getElementById('hotness-value');     
+    hotnessSlider.addEventListener('input', function() {
+    hotnessValue.textContent = this.value});
+  </script>
+
+</body>
+</html>
